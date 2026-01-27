@@ -14,10 +14,12 @@
   },
   "private": true,
   "devDependencies": {
+    "@nestjs/schematics": "^11.0.0",
     "@nx/devkit": "22.4.2",
     "@nx/eslint": "^22.4.2",
     "@nx/eslint-plugin": "22.4.2",
     "@nx/js": "22.4.2",
+    "@nx/nest": "^22.4.2",
     "@nx/playwright": "^22.4.2",
     "@nx/react": "^22.4.2",
     "@nx/vite": "^22.4.2",
