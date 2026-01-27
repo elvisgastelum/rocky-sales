@@ -30,7 +30,8 @@ export default defineConfig(() => ({
     name: '@rocky-sales/store-frontend',
     watch: false,
     globals: true,
-    environment: 'jsdom',
+    environment: 'happy-dom',
+    setupFiles: ['./src/vitest.setup.ts'],
     include: ['{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     reporters: ['default'],
     coverage: {
