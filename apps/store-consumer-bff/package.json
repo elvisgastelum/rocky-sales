@@ -80,7 +80,11 @@
           "passWithNoTests": true
         }
       }
-    }
+    },
+    "tags": [
+      "scope:consumer",
+      "type:backend"
+    ]
   },
   "dependencies": {
     "@nestjs/common": "^11.0.0",
