@@ -5,10 +5,11 @@
   "scripts": {
     "start": "nx serve-static @rocky-sales/store-consumer-web",
     "dev": "nx run-many -t serve",
-    "build": "nx run-many -t build",
-    "test": "nx run-many -t test",
-    "lint": "nx run-many -t lint",
-    "typecheck": "nx run-many -t typecheck",
+    "build": "nx run-many -t build --tui=false",
+    "test": "nx run-many -t test --tui=false",
+    "format": "nx format:write",
+    "lint": "nx run-many -t lint --tui=false",
+    "typecheck": "nx run-many -t typecheck --tui=false",
     "e2e": "nx run-many -t e2e",
     "e2e:ci": "nx run-many -t e2e --tui=false",
     "graph": "nx graph"

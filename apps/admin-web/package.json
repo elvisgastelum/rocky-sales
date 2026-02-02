@@ -1,10 +1,10 @@
 {
-  "name": "@rocky-sales/store-consumer-web",
+  "name": "@rocky-sales/admin-web",
   "version": "0.0.1",
   "private": true,
   "nx": {
     "tags": [
-      "scope:consumer",
+      "scope:admin",
       "type:ui"
     ]
   }

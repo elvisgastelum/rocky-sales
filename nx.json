@@ -80,7 +80,7 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/store-consumer-bff-e2e/**/*"]
+      "exclude": ["apps/store-consumer-bff-e2e/**/*", "apps/admin-bff-e2e/**/*"]
     }
   ],
   "targetDefaults": {

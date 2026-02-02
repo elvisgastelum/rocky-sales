@@ -1,0 +1,26 @@
+{
+  "name": "@rocky-sales/admin-bff-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@rocky-sales/admin-bff"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/admin-bff-e2e/jest.config.cts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@rocky-sales/admin-bff:build",
+          "@rocky-sales/admin-bff:serve"
+        ]
+      }
+    }
+  }
+}
