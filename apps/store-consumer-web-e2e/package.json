@@ -1,10 +1,10 @@
 {
-  "name": "@rocky-sales/store-frontend-e2e",
+  "name": "@rocky-sales/store-consumer-web-e2e",
   "version": "0.0.1",
   "private": true,
   "nx": {
     "implicitDependencies": [
-      "@rocky-sales/store-frontend"
+      "@rocky-sales/store-consumer-web"
     ]
   }
 }

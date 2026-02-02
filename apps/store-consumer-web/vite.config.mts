@@ -4,13 +4,13 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(() => ({
   root: import.meta.dirname,
-  cacheDir: '../../node_modules/.vite/apps/store-frontend',
+  cacheDir: '../../node_modules/.vite/apps/store-consumer-web',
   server: {
-    port: 4200,
+    port: 5500,
     host: 'localhost',
   },
   preview: {
-    port: 4200,
+    port: 5500,
     host: 'localhost',
   },
   plugins: [react()],
@@ -27,11 +27,10 @@ export default defineConfig(() => ({
     },
   },
   test: {
-    name: '@rocky-sales/store-frontend',
+    name: '@rocky-sales/store-consumer-web',
     watch: false,
     globals: true,
-    environment: 'happy-dom',
-    setupFiles: ['./src/vitest.setup.ts'],
+    environment: 'jsdom',
     include: ['{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     reporters: ['default'],
     coverage: {
