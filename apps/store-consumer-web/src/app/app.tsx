@@ -1,6 +1,7 @@
-import { Route, Routes, Link } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 
 export function App() {
+
   return (
     <div className="container mx-auto p-4">
       <h1>Store Consumer Web</h1>

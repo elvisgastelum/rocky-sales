@@ -8,6 +8,9 @@ export default defineConfig(() => ({
   server: {
     port: 5500,
     host: 'localhost',
+    proxy: {
+      '/api': 'http://localhost:3000',
+    },
   },
   preview: {
     port: 5500,
