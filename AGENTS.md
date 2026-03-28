@@ -47,6 +47,16 @@ Prompting shortcut:
 
 - `Read todo/README.md and todo/handoff/current-context.md first, then <task>.`
 
+OpenCode primary agents (Tab-switchable) are defined under `.opencode/agents/`:
+
+- `rocky-sales-planner` -> `.opencode/agents/rocky-sales-planner.md`
+- `rocky-sales-builder` -> `.opencode/agents/rocky-sales-builder.md`
+
+Permission intent:
+
+- `rocky-sales-planner`: planning-first with guarded context commands (`edit: deny`, `bash: ask` with allowlist for `git status/log/diff` and `npx nx show`)
+- `rocky-sales-builder`: implementation agent with command/edit permissions
+
 ## Build, Lint, Test, Typecheck Commands
 
 Root scripts:

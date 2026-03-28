@@ -6,7 +6,7 @@ Last updated: 2026-03-28
 
 - Git branch: `master`
 - Remote relation: `ahead 1` vs `origin/master`
-- Working tree: clean
+- Working tree: dirty (active local changes in agent/todo files plus e2e ESLint configs)
 - Monorepo: Nx v22 + npm workspaces
 
 ## Active Projects
@@ -35,6 +35,11 @@ Last updated: 2026-03-28
   - `rocky-sales-planner` for planning-only loops.
   - `rocky-sales-builder` for implementation + verification + handoff updates.
 - Both profiles enforce startup anchor on `todo/README.md`, `todo/handoff/current-context.md`, and `todo/next-steps.md`.
+- OpenCode primary (Tab-switchable) agents now exist under `.opencode/agents/`:
+  - `.opencode/agents/rocky-sales-planner.md`
+  - `.opencode/agents/rocky-sales-builder.md`
+- `rocky-sales-planner` uses guarded planning permissions (`edit: deny`, `bash: ask`) with allowlisted context commands (`git status/log/diff`, `npx nx show`).
+- `CLAUDE.md` is now a filesystem symlink to `AGENTS.md`; `AGENTS.md` is the canonical instruction source.
 
 ## Verification Status
 
@@ -44,16 +49,16 @@ Latest full check command:
 
 Outcome:
 
-- Passed: all typecheck targets and most lint/test targets.
-- Failed target: `@rocky-sales/store-consumer-web-e2e:lint`.
-- Failure reason: ESLint includes generated file `apps/store-consumer-web-e2e/out-tsc/playwright/playwright.config.d.ts` and triggers `@typescript-eslint/ban-types` on `{}`.
+- Passed: all `lint`, `test`, and `typecheck` targets for all 8 projects.
+- Follow-up fix applied: added `out-tsc/` to `ignorePatterns` in all e2e app `.eslintrc.json` files.
+- Note: Vitest runs still emit non-failing React Router future-flag warnings in scaffold tests.
 
 ## Current Blockers
 
-1. Lint configuration for `store-consumer-web-e2e` allows generated `out-tsc` artifacts into lint scope.
-2. No persistent todo memory existed before this setup; now bootstrapped.
+1. OpenCode restart/validation of planner-builder tab behavior is still pending.
+2. First real consumer/admin product slices are not scoped or implemented yet.
 
 ## Risk Notes
 
-- Running broad lint/test commands may generate build artifacts that should be ignored by linting.
-- Current apps are mostly scaffolds; product behavior is not implemented yet.
+- Broad lint/test runs can still generate artifacts; keep `dist/` and `out-tsc/` ignored in project ESLint configs.
+- Current apps remain scaffold-level, so baseline green does not represent product readiness.

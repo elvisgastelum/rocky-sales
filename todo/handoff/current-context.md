@@ -6,21 +6,27 @@ Updated: 2026-03-28
 
 - Nx monorepo with 8 apps (consumer/admin web + bff + e2e).
 - Codebase is in scaffold stage for most projects.
-- Git branch `master` is ahead by 1 commit, working tree clean.
+- Git branch `master` is ahead by 1 commit, working tree currently dirty with local in-progress files.
 - Repo-local agent profiles are now tracked in git:
   - `.agents/skills/rocky-sales-planner/SKILL.md`
   - `.agents/skills/rocky-sales-builder/SKILL.md`
+- OpenCode Tab-switchable primary agents are now tracked in git:
+  - `.opencode/agents/rocky-sales-planner.md`
+  - `.opencode/agents/rocky-sales-builder.md`
+- `rocky-sales-planner` is planning-only by policy with guarded context commands (`edit: deny`, `bash: ask` + allowlisted `git status/log/diff`, `npx nx show`).
+- `CLAUDE.md` is now a symlink to `AGENTS.md` (single canonical instructions source).
 
 ## Most Important Open Issue
 
-- `@rocky-sales/store-consumer-web-e2e:lint` fails because generated `out-tsc` files are being linted.
+- Baseline checks now pass; next critical move is to start the first real product slice using planner -> builder loop.
 
 ## What To Do First
 
-1. Fix e2e lint ignore pattern in `apps/store-consumer-web-e2e/.eslintrc.json` (and align similar projects).
-2. Re-run full baseline checks.
-3. Use planner profile to shape first real consumer/admin product slices.
+1. Restart OpenCode and confirm planner/builder appear in Tab options.
+2. Validate planner guarded behavior with one allowlisted command and one non-allowlisted command.
+3. Use planner profile to shape the first minimal consumer/admin product slice.
 4. Execute chosen slice with builder profile.
+5. Run focused Nx checks on changed projects and update todo memory files.
 
 ## Quick Command Pack
 
@@ -28,6 +34,12 @@ Updated: 2026-03-28
 - `npx nx run-many -t lint test typecheck --tui=false`
 - `npx nx run @rocky-sales/store-consumer-web-e2e:lint`
 - `Read todo/README.md and todo/handoff/current-context.md first, then <task>.`
+
+## Latest Verification Snapshot
+
+- `npx nx run @rocky-sales/store-consumer-web-e2e:lint` -> pass.
+- `npx nx run-many -t lint test typecheck --tui=false` -> pass for all 8 projects.
+- e2e `.eslintrc.json` files now ignore `out-tsc/` and `dist/`.
 
 ## Memory Discipline
 

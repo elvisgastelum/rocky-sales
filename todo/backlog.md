@@ -5,7 +5,9 @@ Last updated: 2026-03-28
 ## High Priority
 
 - [x] `done` Create repo-local agent profiles `rocky-sales-builder` and `rocky-sales-planner` with mandatory todo startup anchor.
-- [ ] `todo` Fix `@rocky-sales/store-consumer-web-e2e:lint` by excluding generated `out-tsc` outputs.
+- [x] `done` Add OpenCode Tab-switchable primary agents for planner/builder under `.opencode/agents/`.
+- [x] `done` Set `rocky-sales-planner` to planning permissions (`edit: deny`, `bash: ask`) with allowlisted context commands.
+- [x] `done` Fix e2e lint scope by excluding generated `out-tsc` outputs in all e2e projects.
 - [ ] `todo` Replace scaffold routes and copy in `store-consumer-web` with first real user flow.
 - [ ] `todo` Replace scaffold routes and copy in `admin-web` with first admin flow.
 - [ ] `todo` Define first domain modules and API contracts for both BFF services.
@@ -18,5 +20,6 @@ Last updated: 2026-03-28
 
 ## Low Priority
 
+- [x] `done` Convert `CLAUDE.md` into a redirect/pointer file to `AGENTS.md` as the canonical instructions source.
 - [ ] `todo` Replace boilerplate root `README.md` with project-specific onboarding and architecture map.
 - [ ] `todo` Introduce first reusable internal package under `packages/` when shared logic appears.
