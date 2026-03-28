@@ -48,7 +48,8 @@ Last updated: 2026-03-28
   - `rocky-sales-qa-analyst`
   - `rocky-sales-devops-engineer`
   - `rocky-sales-docker-expert`
-- `rocky-sales-planner` uses guarded planning permissions (`edit: deny`, `bash: ask`) with allowlisted context + validation commands (`git status/log/diff`, `npx nx show`, `npm run format`, `npx nx affected`, `npx nx run-many -t lint test typecheck --tui=false`).
+- `rocky-sales-planner` uses guarded planning permissions (`edit: deny`, `bash: ask`) with allowlisted context + validation commands (`git status/log/diff`, `npx nx show`, `npm run format`, `npx nx affected`, `npx nx run-many -t lint test typecheck --tui=false`); clipboard commands (`pbcopy`, `pbpaste`) are explicitly ask-gated.
+- Added project-local OpenCode command `.opencode/commands/commit-message.md` to suggest commit titles and then ask whether to copy with `pbcopy`.
 - `rocky-sales-planner` and `rocky-sales-builder` now both include explicit worker-delegation guidance and before/after chunk validation cadence.
 - `CLAUDE.md` is now a filesystem symlink to `AGENTS.md`; `AGENTS.md` is the canonical instruction source.
 - Delegation smoke test completed through specialist workers:

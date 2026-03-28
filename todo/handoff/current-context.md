@@ -22,7 +22,8 @@ Updated: 2026-03-28
   - `.opencode/agents/rocky-sales-qa-analyst.md`
   - `.opencode/agents/rocky-sales-devops-engineer.md`
   - `.opencode/agents/rocky-sales-docker-expert.md`
-- `rocky-sales-planner` is planning-only by policy with guarded context commands (`edit: deny`, `bash: ask` + allowlisted `git status/log/diff`, `npx nx show`) and validation commands (`npm run format`, `npx nx affected -t lint test typecheck --uncommitted --tui=false`, `npx nx run-many -t lint test typecheck --tui=false`).
+- `rocky-sales-planner` is planning-only by policy with guarded context commands (`edit: deny`, `bash: ask` + allowlisted `git status/log/diff`, `npx nx show`) and validation commands (`npm run format`, `npx nx affected -t lint test typecheck --uncommitted --tui=false`, `npx nx run-many -t lint test typecheck --tui=false`); clipboard commands `pbcopy`/`pbpaste` are explicitly ask-gated.
+- Added project-local slash command `.opencode/commands/commit-message.md` to suggest a commit title and then ask whether to copy it to clipboard.
 - Planner and builder profiles now explicitly instruct delegation to specialist workers and require clean architecture + code-smell checks in handoff outputs.
 - `CLAUDE.md` is now a symlink to `AGENTS.md` (single canonical instructions source).
 - Delegation flow smoke-tested in this loop:

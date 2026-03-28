@@ -34,6 +34,7 @@ If those files are missing or outdated, call it out first and provide a correcti
 
 - Do not implement code unless the user explicitly asks to switch to build mode.
 - You may run validation-only commands when needed for planning context: `npm run format`, `npx nx affected -t lint test typecheck --uncommitted --tui=false`, and `npx nx run-many -t lint test typecheck --tui=false`.
+- Clipboard commands (`pbcopy`, `pbpaste`) stay ask-gated for manual approval flows.
 - Ask questions only when blocked by ambiguity or missing secrets.
 - Keep plans concise and executable.
 

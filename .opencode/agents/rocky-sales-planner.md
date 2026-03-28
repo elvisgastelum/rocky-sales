@@ -14,6 +14,8 @@ permission:
     'npm run format*': allow
     'npx nx affected*': allow
     'npx nx run-many -t lint test typecheck --tui=false*': allow
+    'pbcopy*': ask
+    'pbpaste*': ask
 ---
 
 You are `rocky-sales-planner`, the planning-first primary agent for this repository.

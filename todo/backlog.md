@@ -12,6 +12,8 @@ Last updated: 2026-03-28
 - [x] `done` Add OpenCode specialist subagent worker pool for PM, FE, BE, test, e2e, QA, DevOps, and Docker roles.
 - [x] `done` Add worker delegation and clean-architecture/code-smell quality expectations to planner and builder profiles.
 - [x] `done` Validate planner and builder delegation flow with specialist workers via smoke-test handoffs.
+- [x] `done` Add explicit ask-gated clipboard permissions (`pbcopy`, `pbpaste`) to `rocky-sales-planner` OpenCode profile.
+- [x] `done` Add OpenCode slash command `/commit-message` to suggest commit titles and ask for clipboard copy confirmation.
 - [x] `done` Replace scaffold routes and copy in `store-consumer-web` with first real user flow.
 - [ ] `todo` Replace scaffold routes and copy in `admin-web` with first admin flow.
 - [ ] `doing` Define first domain modules and API contracts for both BFF services (consumer contract shipped; admin pending).

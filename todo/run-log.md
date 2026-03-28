@@ -157,3 +157,30 @@
 - File updates:
   - Updated todo memory docs (`project-state`, `backlog`, `next-steps`, `handoff/current-context`) after consumer slice implementation.
   - Added cycle note: `todo/cycles/2026-03-28-cycle-011.md`.
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: pass for currently affected consumer projects (cached where applicable); no failing targets.
+
+- File updates (planner clipboard permission policy):
+  - Updated `.opencode/agents/rocky-sales-planner.md` to include explicit ask-gated `pbcopy` and `pbpaste` bash rules.
+  - Updated `.agents/skills/rocky-sales-planner/SKILL.md` and `AGENTS.md` to document ask-gated clipboard behavior.
+  - Updated todo memory docs (`project-state`, `backlog`, `next-steps`, `handoff/current-context`) to reflect the permission change.
+
+- Research:
+  - Used Context7 docs for `/anomalyco/opencode` to confirm custom slash-command format via markdown files in `.opencode/commands/`.
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: pass; `npm run format` completed, `nx affected` reported `No tasks were run`.
+
+- Command: `mkdir -p .opencode/commands`
+  - Result: created project-local OpenCode command directory.
+
+- File updates (slash command):
+  - Added `.opencode/commands/commit-message.md` to implement `/commit-message` workflow (suggest title + ask to copy to clipboard).
+  - Updated todo memory docs (`project-state`, `backlog`, `next-steps`, `handoff/current-context`) to capture the new command.
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: pass after command + todo updates; `npm run format` succeeded and `nx affected` reported `No tasks were run`.
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: final pass after run-log sync; `npm run format` succeeded and `nx affected` reported `No tasks were run`.

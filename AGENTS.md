@@ -65,7 +65,7 @@ OpenCode specialist subagents (worker pool) are defined under `.opencode/agents/
 
 Permission intent:
 
-- `rocky-sales-planner`: planning-first with guarded context commands (`edit: deny`, `bash: ask` with allowlist for `git status/log/diff`, `npx nx show`, `npm run format`, `npx nx affected`, and full `npx nx run-many -t lint test typecheck --tui=false`)
+- `rocky-sales-planner`: planning-first with guarded context commands (`edit: deny`, `bash: ask` with allowlist for `git status/log/diff`, `npx nx show`, `npm run format`, `npx nx affected`, and full `npx nx run-many -t lint test typecheck --tui=false`; clipboard commands `pbcopy`/`pbpaste` remain ask-gated)
 - `rocky-sales-builder`: implementation agent with command/edit permissions and pre/post chunk validation cadence
 
 ## Build, Lint, Test, Typecheck Commands
