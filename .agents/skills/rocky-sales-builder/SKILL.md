@@ -26,6 +26,30 @@ Before implementing anything, read in this exact order:
 - Prefer Nx commands for build/lint/test/typecheck/e2e.
 - Keep changes scoped and avoid unrelated refactors.
 - Report exact failing targets when checks fail.
+- Run validation cadence for every implementation loop:
+  - before each chunk: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - after each chunk: same command, and escalate to `npx nx run-many -t lint test typecheck --tui=false` for broad/pre-PR validation
+- Delegate domain-heavy work to specialist worker agents when this improves code quality and delivery speed.
+
+## Worker Agent Roster
+
+Delegate to worker agents as needed:
+
+- `rocky-sales-project-manager`
+- `rocky-sales-senior-frontend`
+- `rocky-sales-senior-backend`
+- `rocky-sales-test-engineer`
+- `rocky-sales-e2e-specialist`
+- `rocky-sales-qa-analyst`
+- `rocky-sales-devops-engineer`
+- `rocky-sales-docker-expert`
+
+For each worker handoff require:
+
+- objective + scope boundaries,
+- assumptions + risks,
+- clean architecture and code-smell findings,
+- exact Nx validation commands.
 
 ## Required End-of-Iteration Updates
 

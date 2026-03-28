@@ -5,6 +5,17 @@ This repository defines two local agent profiles that are versioned with git:
 - `rocky-sales-builder`
 - `rocky-sales-planner`
 
+It also defines specialist OpenCode subagents under `.opencode/agents/`:
+
+- `rocky-sales-project-manager`
+- `rocky-sales-senior-frontend`
+- `rocky-sales-senior-backend`
+- `rocky-sales-test-engineer`
+- `rocky-sales-e2e-specialist`
+- `rocky-sales-qa-analyst`
+- `rocky-sales-devops-engineer`
+- `rocky-sales-docker-expert`
+
 These profiles are intentionally repo-scoped so behavior stays consistent across machines.
 
 ## Location

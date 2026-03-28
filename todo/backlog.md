@@ -7,7 +7,10 @@ Last updated: 2026-03-28
 - [x] `done` Create repo-local agent profiles `rocky-sales-builder` and `rocky-sales-planner` with mandatory todo startup anchor.
 - [x] `done` Add OpenCode Tab-switchable primary agents for planner/builder under `.opencode/agents/`.
 - [x] `done` Set `rocky-sales-planner` to planning permissions (`edit: deny`, `bash: ask`) with allowlisted context commands.
+- [x] `done` Expand `rocky-sales-planner` allowlist to include validation commands (`npm run format`, `npx nx affected -t lint test typecheck --uncommitted --tui=false`, and `npx nx run-many -t lint test typecheck --tui=false`).
 - [x] `done` Fix e2e lint scope by excluding generated `out-tsc` outputs in all e2e projects.
+- [x] `done` Add OpenCode specialist subagent worker pool for PM, FE, BE, test, e2e, QA, DevOps, and Docker roles.
+- [x] `done` Add worker delegation and clean-architecture/code-smell quality expectations to planner and builder profiles.
 - [ ] `todo` Replace scaffold routes and copy in `store-consumer-web` with first real user flow.
 - [ ] `todo` Replace scaffold routes and copy in `admin-web` with first admin flow.
 - [ ] `todo` Define first domain modules and API contracts for both BFF services.
@@ -16,6 +19,7 @@ Last updated: 2026-03-28
 
 - [ ] `todo` Add shared contract strategy between web and BFF (types or schema package).
 - [ ] `todo` Add basic CI profile for affected `lint`, `test`, `typecheck`.
+- [x] `done` Mirror before/after chunk validation cadence in `rocky-sales-builder` profile docs.
 - [ ] `todo` Populate root `src/customers` and `src/stores` with real domain models or remove placeholders.
 
 ## Low Priority

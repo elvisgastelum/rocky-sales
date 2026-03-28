@@ -41,3 +41,21 @@
 - Decision: replace `CLAUDE.md` content with a short redirect to `AGENTS.md`.
 - Why: keep one canonical instruction source and avoid drift.
 - Impact: agents reading `CLAUDE.md` are directed to the up-to-date `AGENTS.md` playbook.
+
+## 2026-03-28 - Allow Planner Validation Command Chain
+
+- Decision: expand `rocky-sales-planner` allowlist with validation commands: `npm run format`, `npx nx affected -t lint test typecheck --uncommitted --tui=false`, and `npx nx run-many -t lint test typecheck --tui=false`.
+- Why: planner loops can now verify repo health between planning chunks without switching agents.
+- Impact: planner remains non-editing while supporting consistent pre/post chunk validation discipline.
+
+## 2026-03-28 - Add OpenCode Specialist Subagent Worker Pool
+
+- Decision: add 8 repo-local OpenCode subagents under `.opencode/agents/` for PM, frontend, backend, test, e2e, QA, DevOps, and Docker specialization.
+- Why: improve quality and speed by delegating domain-heavy tasks to focused workers with clear charters.
+- Impact: planner and builder can orchestrate specialist handoffs with structured outputs and stronger quality checks.
+
+## 2026-03-28 - Require Worker Handoff Quality Guardrails
+
+- Decision: update planner and builder profile instructions to require worker outputs that include assumptions, risks, code-smell/clean-architecture checks, and exact Nx verification commands.
+- Why: keep multi-agent orchestration consistent and auditable between iterations.
+- Impact: delegated work remains aligned with clean-code standards and repo verification cadence.

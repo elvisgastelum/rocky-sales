@@ -38,7 +38,17 @@ Last updated: 2026-03-28
 - OpenCode primary (Tab-switchable) agents now exist under `.opencode/agents/`:
   - `.opencode/agents/rocky-sales-planner.md`
   - `.opencode/agents/rocky-sales-builder.md`
-- `rocky-sales-planner` uses guarded planning permissions (`edit: deny`, `bash: ask`) with allowlisted context commands (`git status/log/diff`, `npx nx show`).
+- OpenCode specialist subagent worker pool now exists under `.opencode/agents/`:
+  - `rocky-sales-project-manager`
+  - `rocky-sales-senior-frontend`
+  - `rocky-sales-senior-backend`
+  - `rocky-sales-test-engineer`
+  - `rocky-sales-e2e-specialist`
+  - `rocky-sales-qa-analyst`
+  - `rocky-sales-devops-engineer`
+  - `rocky-sales-docker-expert`
+- `rocky-sales-planner` uses guarded planning permissions (`edit: deny`, `bash: ask`) with allowlisted context + validation commands (`git status/log/diff`, `npx nx show`, `npm run format`, `npx nx affected`, `npx nx run-many -t lint test typecheck --tui=false`).
+- `rocky-sales-planner` and `rocky-sales-builder` now both include explicit worker-delegation guidance and before/after chunk validation cadence.
 - `CLAUDE.md` is now a filesystem symlink to `AGENTS.md`; `AGENTS.md` is the canonical instruction source.
 
 ## Verification Status

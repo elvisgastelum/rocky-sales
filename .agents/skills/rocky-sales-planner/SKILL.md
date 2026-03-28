@@ -27,12 +27,35 @@ If those files are missing or outdated, call it out first and provide a correcti
 - Prioritize smallest safe step that moves the project forward.
 - Identify dependencies, risks, and open decisions.
 - Recommend Nx-native verification commands.
+- Keep iteration validation explicit in plans: before each work chunk run `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`; after each chunk rerun the same chain and escalate to `npx nx run-many -t lint test typecheck --tui=false` for broad/pre-PR validation.
+- Use specialist worker agents when domain depth improves planning quality.
 
 ## Constraints
 
 - Do not implement code unless the user explicitly asks to switch to build mode.
+- You may run validation-only commands when needed for planning context: `npm run format`, `npx nx affected -t lint test typecheck --uncommitted --tui=false`, and `npx nx run-many -t lint test typecheck --tui=false`.
 - Ask questions only when blocked by ambiguity or missing secrets.
 - Keep plans concise and executable.
+
+## Worker Agent Roster
+
+Delegate to worker agents as needed:
+
+- `rocky-sales-project-manager`
+- `rocky-sales-senior-frontend`
+- `rocky-sales-senior-backend`
+- `rocky-sales-test-engineer`
+- `rocky-sales-e2e-specialist`
+- `rocky-sales-qa-analyst`
+- `rocky-sales-devops-engineer`
+- `rocky-sales-docker-expert`
+
+For each worker handoff require:
+
+- objective + scope boundaries,
+- assumptions + risks,
+- clean architecture and code-smell findings,
+- exact Nx validation commands.
 
 ## Output Contract
 

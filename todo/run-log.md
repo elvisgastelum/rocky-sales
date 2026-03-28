@@ -64,3 +64,42 @@
 
 - Command: `git status --short`
   - Result: working tree contains existing in-progress changes plus this iteration's e2e ESLint and todo updates.
+
+- File updates:
+  - Updated `.opencode/agents/rocky-sales-planner.md` allowlist to include validation commands: `npm run format`, `npx nx affected`, and `npx nx run-many -t lint test typecheck --tui=false`.
+  - Updated `.agents/skills/rocky-sales-planner/SKILL.md` to document before/after chunk validation cadence and permitted validation commands.
+  - Updated `AGENTS.md` permission intent to match planner validation allowlist.
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: `nx format:write` completed; `nx affected` reported `No tasks were run` for current uncommitted scope.
+
+- File updates:
+  - Updated todo memory docs (`project-state`, `backlog`, `next-steps`, `handoff/current-context`) to reflect planner permission and workflow changes.
+
+- Research:
+  - Used Context7 with `/anomalyco/opencode` to confirm OpenCode best practices for project-local agents, `mode: subagent`, frontmatter permissions, and skill discovery.
+
+- File updates:
+  - Added specialist OpenCode subagent worker profiles under `.opencode/agents/`:
+    - `rocky-sales-project-manager.md`
+    - `rocky-sales-senior-frontend.md`
+    - `rocky-sales-senior-backend.md`
+    - `rocky-sales-test-engineer.md`
+    - `rocky-sales-e2e-specialist.md`
+    - `rocky-sales-qa-analyst.md`
+    - `rocky-sales-devops-engineer.md`
+    - `rocky-sales-docker-expert.md`
+  - Updated planner/builder docs to include worker delegation rules and quality guardrails:
+    - `.opencode/agents/rocky-sales-planner.md`
+    - `.opencode/agents/rocky-sales-builder.md`
+    - `.agents/skills/rocky-sales-planner/SKILL.md`
+    - `.agents/skills/rocky-sales-builder/SKILL.md`
+  - Updated discovery docs:
+    - `.agents/README.md`
+    - `AGENTS.md`
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: `nx format:write` completed; `nx affected` reported `No tasks were run` for current uncommitted scope.
+
+- File updates:
+  - Updated todo memory docs (`project-state`, `backlog`, `next-steps`, `handoff/current-context`, `decisions`) for specialist-worker rollout.

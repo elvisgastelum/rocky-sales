@@ -13,20 +13,30 @@ Updated: 2026-03-28
 - OpenCode Tab-switchable primary agents are now tracked in git:
   - `.opencode/agents/rocky-sales-planner.md`
   - `.opencode/agents/rocky-sales-builder.md`
-- `rocky-sales-planner` is planning-only by policy with guarded context commands (`edit: deny`, `bash: ask` + allowlisted `git status/log/diff`, `npx nx show`).
+- OpenCode specialist subagent worker pool is now tracked in git:
+  - `.opencode/agents/rocky-sales-project-manager.md`
+  - `.opencode/agents/rocky-sales-senior-frontend.md`
+  - `.opencode/agents/rocky-sales-senior-backend.md`
+  - `.opencode/agents/rocky-sales-test-engineer.md`
+  - `.opencode/agents/rocky-sales-e2e-specialist.md`
+  - `.opencode/agents/rocky-sales-qa-analyst.md`
+  - `.opencode/agents/rocky-sales-devops-engineer.md`
+  - `.opencode/agents/rocky-sales-docker-expert.md`
+- `rocky-sales-planner` is planning-only by policy with guarded context commands (`edit: deny`, `bash: ask` + allowlisted `git status/log/diff`, `npx nx show`) and validation commands (`npm run format`, `npx nx affected -t lint test typecheck --uncommitted --tui=false`, `npx nx run-many -t lint test typecheck --tui=false`).
+- Planner and builder profiles now explicitly instruct delegation to specialist workers and require clean architecture + code-smell checks in handoff outputs.
 - `CLAUDE.md` is now a symlink to `AGENTS.md` (single canonical instructions source).
 
 ## Most Important Open Issue
 
-- Baseline checks now pass; next critical move is to start the first real product slice using planner -> builder loop.
+- Agent topology now includes specialist workers; next critical move is to validate end-to-end delegation flow in OpenCode and start first real product slice using planner -> specialist workers -> builder loop.
 
 ## What To Do First
 
-1. Restart OpenCode and confirm planner/builder appear in Tab options.
-2. Validate planner guarded behavior with one allowlisted command and one non-allowlisted command.
-3. Use planner profile to shape the first minimal consumer/admin product slice.
-4. Execute chosen slice with builder profile.
-5. Run focused Nx checks on changed projects and update todo memory files.
+1. Restart OpenCode and confirm planner/builder plus specialist workers appear in agent list.
+2. Validate planner guarded behavior with one newly allowlisted validation command and one non-allowlisted command.
+3. Validate one planner delegation and one builder delegation to specialist workers.
+4. Use planner profile + workers to shape the first minimal consumer/admin product slice.
+5. Execute chosen slice with builder profile + workers and run focused Nx checks.
 
 ## Quick Command Pack
 

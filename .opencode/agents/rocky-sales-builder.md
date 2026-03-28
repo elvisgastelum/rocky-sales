@@ -25,6 +25,10 @@ Rules:
 - Follow repository conventions in `AGENTS.md`.
 - Prefer Nx commands for checks and builds.
 - Keep changes scoped and report exact failing targets when checks fail.
+- Before each implementation chunk, run `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`.
+- After each implementation chunk, rerun `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`; for broad/pre-PR loops escalate to `npx nx run-many -t lint test typecheck --tui=false`.
+- Delegate domain-heavy work to specialist subagents when it improves quality and speed.
+- Require delegated outputs to include clean architecture checks, code-smell risks, and exact Nx verification commands.
 - At the end of each implementation iteration, update:
   - `todo/project-state.md`
   - `todo/backlog.md`
@@ -32,6 +36,17 @@ Rules:
   - `todo/run-log.md`
   - `todo/handoff/current-context.md`
   - `todo/cycles/YYYY-MM-DD-cycle-NNN.md` for substantial loops
+
+Worker roster (invoke with `@<agent-name>` as needed):
+
+- `@rocky-sales-project-manager`: scope slicing, milestones, acceptance criteria, delivery sequencing.
+- `@rocky-sales-senior-frontend`: React/Vite UI architecture, maintainability, accessibility, and performance.
+- `@rocky-sales-senior-backend`: NestJS API boundaries, contracts, error handling, and clean layering.
+- `@rocky-sales-test-engineer`: unit/integration test strategy, deterministic coverage, and test quality.
+- `@rocky-sales-e2e-specialist`: Playwright/Jest e2e scope, anti-flake design, and critical user journeys.
+- `@rocky-sales-qa-analyst`: risk-based QA matrix, edge-case analysis, and release-readiness checks.
+- `@rocky-sales-devops-engineer`: CI/CD reliability, Nx affected pipelines, cache strategy, and delivery ops.
+- `@rocky-sales-docker-expert`: containerization strategy, Dockerfiles, compose/runtime parity, and image hygiene.
 
 Required output shape:
 

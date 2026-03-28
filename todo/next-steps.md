@@ -4,11 +4,11 @@ Last updated: 2026-03-28
 
 ## Immediate Queue
 
-1. Restart OpenCode and verify `rocky-sales-planner`/`rocky-sales-builder` appear in Tab cycle and planner only runs allowlisted context commands.
-2. Use `rocky-sales-planner` to define the first minimal consumer/admin product slices.
-3. Select one slice and execute it with `rocky-sales-builder` (web + bff endpoint + tests).
-4. Run focused Nx checks for changed projects during slice implementation.
-5. Keep todo memory and cycle notes updated at the end of each implementation loop.
+1. Restart OpenCode and verify planner/builder + all specialist subagents appear and are invokable (`@rocky-sales-*`).
+2. Validate planner and builder delegation flow by running one planning handoff and one implementation handoff to specialist workers.
+3. Use `rocky-sales-planner` + worker pool to define the first minimal consumer/admin product slices.
+4. Select one slice and execute it with `rocky-sales-builder` + specialist workers (web + bff endpoint + tests).
+5. Keep before/after chunk validation cadence and todo memory updates on every loop.
 
 ## Definition of Done for Current Baseline
 

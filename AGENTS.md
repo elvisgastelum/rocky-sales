@@ -52,10 +52,21 @@ OpenCode primary agents (Tab-switchable) are defined under `.opencode/agents/`:
 - `rocky-sales-planner` -> `.opencode/agents/rocky-sales-planner.md`
 - `rocky-sales-builder` -> `.opencode/agents/rocky-sales-builder.md`
 
+OpenCode specialist subagents (worker pool) are defined under `.opencode/agents/`:
+
+- `rocky-sales-project-manager`
+- `rocky-sales-senior-frontend`
+- `rocky-sales-senior-backend`
+- `rocky-sales-test-engineer`
+- `rocky-sales-e2e-specialist`
+- `rocky-sales-qa-analyst`
+- `rocky-sales-devops-engineer`
+- `rocky-sales-docker-expert`
+
 Permission intent:
 
-- `rocky-sales-planner`: planning-first with guarded context commands (`edit: deny`, `bash: ask` with allowlist for `git status/log/diff` and `npx nx show`)
-- `rocky-sales-builder`: implementation agent with command/edit permissions
+- `rocky-sales-planner`: planning-first with guarded context commands (`edit: deny`, `bash: ask` with allowlist for `git status/log/diff`, `npx nx show`, `npm run format`, `npx nx affected`, and full `npx nx run-many -t lint test typecheck --tui=false`)
+- `rocky-sales-builder`: implementation agent with command/edit permissions and pre/post chunk validation cadence
 
 ## Build, Lint, Test, Typecheck Commands
 
