@@ -4,11 +4,11 @@ Last updated: 2026-03-28
 
 ## Immediate Queue
 
-1. Restart OpenCode and verify planner/builder + all specialist subagents appear and are invokable (`@rocky-sales-*`).
-2. Validate planner and builder delegation flow by running one planning handoff and one implementation handoff to specialist workers.
-3. Use `rocky-sales-planner` + worker pool to define the first minimal consumer/admin product slices.
-4. Select one slice and execute it with `rocky-sales-builder` + specialist workers (web + bff endpoint + tests).
-5. Keep before/after chunk validation cadence and todo memory updates on every loop.
+1. Manually restart OpenCode UI and verify planner/builder + all specialist subagents appear and are invokable (`@rocky-sales-*`).
+2. Start the first admin slice mirroring consumer baseline (`admin-bff` endpoint + `admin-web` root fetch/render flow + tests).
+3. Define shared web/BFF contract strategy for home payloads (local type pattern vs `packages/` contract package).
+4. Re-run broad validation before next handoff: `npx nx run-many -t lint test typecheck --tui=false`.
+5. Keep todo memory and cycle notes updated at each implementation loop.
 
 ## Definition of Done for Current Baseline
 

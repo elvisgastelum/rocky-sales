@@ -103,3 +103,57 @@
 
 - File updates:
   - Updated todo memory docs (`project-state`, `backlog`, `next-steps`, `handoff/current-context`, `decisions`) for specialist-worker rollout.
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: `nx format:write` completed; `nx affected` reported `No tasks were run`.
+
+- Delegation smoke test: planner -> `rocky-sales-project-manager`
+  - Result: returned minimal web+BFF vertical slice proposal (`GET /api/consumer/home` + consumer web `/` fetch/render with loading/error states).
+  - Included: acceptance criteria, clean architecture checks, code-smell risks, exact Nx verification commands.
+
+- Delegation smoke test: builder -> `rocky-sales-senior-frontend`
+  - Result: returned file-level consumer web implementation plan (routes/components/tests/e2e updates).
+  - Included: clean architecture checks, code-smell risks, exact Nx verification commands.
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: `nx format:write` completed; `nx affected` reported `No tasks were run`.
+
+- File updates:
+  - Updated todo memory docs (`project-state`, `backlog`, `next-steps`, `handoff/current-context`) after delegation smoke-test loop.
+  - Added cycle note: `todo/cycles/2026-03-28-cycle-010.md`.
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: `nx format:write` completed; `nx affected` reported `No tasks were run`.
+
+- File updates (consumer vertical slice):
+  - BFF endpoint + tests:
+    - `apps/store-consumer-bff/src/app/app.controller.ts`
+    - `apps/store-consumer-bff/src/app/app.service.ts`
+    - `apps/store-consumer-bff/src/app/app.controller.spec.ts`
+    - `apps/store-consumer-bff/src/app/app.service.spec.ts`
+    - `apps/store-consumer-bff-e2e/src/store-consumer-bff/store-consumer-bff.spec.ts`
+  - Web flow + tests:
+    - `apps/store-consumer-web/src/app/app.tsx`
+    - `apps/store-consumer-web/src/app/app.spec.tsx`
+    - `apps/store-consumer-web-e2e/src/example.spec.ts`
+  - Workflow update:
+    - `package.json` (`npm run format` now runs `nx format:write` + `nx run-many -t lint --fix --tui=false`).
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: passed; `npm run format` executed Prettier + lint fix for all projects, and affected targets passed for consumer projects.
+
+- Command: `npx nx run @rocky-sales/store-consumer-bff-e2e:e2e -- --runTestsByPath src/store-consumer-bff/store-consumer-bff.spec.ts`
+  - Result: pass.
+
+- Command: `npx nx run @rocky-sales/store-consumer-web-e2e:e2e -- src/example.spec.ts --tui=false`
+  - Result: failed.
+  - Failed target: `@rocky-sales/store-consumer-web-e2e:e2e`
+  - Error: Playwright CLI does not accept `--tui=false` forwarded through Nx args.
+
+- Command: `npx nx run @rocky-sales/store-consumer-web-e2e:e2e -- src/example.spec.ts`
+  - Result: pass (3/3 browsers).
+  - Note: Nx chain prints non-failing `vite preview` shutdown warning after Playwright exits.
+
+- File updates:
+  - Updated todo memory docs (`project-state`, `backlog`, `next-steps`, `handoff/current-context`) after consumer slice implementation.
+  - Added cycle note: `todo/cycles/2026-03-28-cycle-011.md`.

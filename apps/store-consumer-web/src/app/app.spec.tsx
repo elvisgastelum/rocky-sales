@@ -1,27 +1,55 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { afterEach, vi } from 'vitest';
 import { BrowserRouter } from 'react-router-dom';
 
 import App from './app';
 
+afterEach(() => {
+  vi.unstubAllGlobals();
+  vi.clearAllMocks();
+});
+
 describe('App', () => {
-  it('should render successfully', () => {
-    const { baseElement } = render(
+  it('renders home data when the API request succeeds', async () => {
+    const mockedFetch = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        title: 'Welcome to Rocky Store',
+        message: 'Shop featured products from trusted local stores.',
+      }),
+    });
+    vi.stubGlobal('fetch', mockedFetch);
+
+    render(
       <BrowserRouter>
         <App />
       </BrowserRouter>,
     );
-    expect(baseElement).toBeTruthy();
+
+    expect(screen.getByText('Loading store home data...')).toBeTruthy();
+
+    expect(
+      await screen.findByRole('heading', { name: 'Welcome to Rocky Store' }),
+    ).toBeTruthy();
+    expect(
+      screen.getByText('Shop featured products from trusted local stores.'),
+    ).toBeTruthy();
+    expect(mockedFetch).toHaveBeenCalledWith('/api/consumer/home');
   });
 
-  it('should have a greeting as the title', () => {
-    const { getAllByText } = render(
+  it('renders a fallback message when the API request fails', async () => {
+    const mockedFetch = vi.fn().mockRejectedValue(new Error('Network error'));
+    vi.stubGlobal('fetch', mockedFetch);
+
+    render(
       <BrowserRouter>
         <App />
       </BrowserRouter>,
     );
+
+    expect(await screen.findByRole('alert')).toBeTruthy();
     expect(
-      getAllByText(new RegExp('Store Consumer Web', 'gi'))
-        .length > 0,
+      screen.getByText('We could not load home content. Please try again.'),
     ).toBeTruthy();
   });
 });

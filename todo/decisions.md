@@ -59,3 +59,9 @@
 - Decision: update planner and builder profile instructions to require worker outputs that include assumptions, risks, code-smell/clean-architecture checks, and exact Nx verification commands.
 - Why: keep multi-agent orchestration consistent and auditable between iterations.
 - Impact: delegated work remains aligned with clean-code standards and repo verification cadence.
+
+## 2026-03-28 - Integrate ESLint Fixes into `npm run format`
+
+- Decision: update root `format` script to run `nx format:write` followed by `nx run-many -t lint --fix --tui=false`.
+- Why: ensure formatting flow applies both Prettier formatting and ESLint auto-fix in one command.
+- Impact: `npm run format` is now a heavier but complete formatting pipeline used in builder pre/post chunk validation.

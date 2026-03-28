@@ -12,9 +12,12 @@ describe('AppService', () => {
     service = app.get<AppService>(AppService);
   });
 
-  describe('getData', () => {
-    it('should return "Hello API"', () => {
-      expect(service.getData()).toEqual({ message: 'Hello API' });
+  describe('getConsumerHomeData', () => {
+    it('should return consumer home data', () => {
+      expect(service.getConsumerHomeData()).toEqual({
+        title: 'Welcome to Rocky Store',
+        message: 'Shop featured products from trusted local stores.',
+      });
     });
   });
 });

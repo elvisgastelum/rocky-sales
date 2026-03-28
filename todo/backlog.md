@@ -11,15 +11,17 @@ Last updated: 2026-03-28
 - [x] `done` Fix e2e lint scope by excluding generated `out-tsc` outputs in all e2e projects.
 - [x] `done` Add OpenCode specialist subagent worker pool for PM, FE, BE, test, e2e, QA, DevOps, and Docker roles.
 - [x] `done` Add worker delegation and clean-architecture/code-smell quality expectations to planner and builder profiles.
-- [ ] `todo` Replace scaffold routes and copy in `store-consumer-web` with first real user flow.
+- [x] `done` Validate planner and builder delegation flow with specialist workers via smoke-test handoffs.
+- [x] `done` Replace scaffold routes and copy in `store-consumer-web` with first real user flow.
 - [ ] `todo` Replace scaffold routes and copy in `admin-web` with first admin flow.
-- [ ] `todo` Define first domain modules and API contracts for both BFF services.
+- [ ] `doing` Define first domain modules and API contracts for both BFF services (consumer contract shipped; admin pending).
 
 ## Medium Priority
 
 - [ ] `todo` Add shared contract strategy between web and BFF (types or schema package).
 - [ ] `todo` Add basic CI profile for affected `lint`, `test`, `typecheck`.
 - [x] `done` Mirror before/after chunk validation cadence in `rocky-sales-builder` profile docs.
+- [x] `done` Update `npm run format` to run Prettier plus ESLint `--fix` integration.
 - [ ] `todo` Populate root `src/customers` and `src/stores` with real domain models or remove placeholders.
 
 ## Low Priority

@@ -12,10 +12,13 @@ describe('AppController', () => {
     }).compile();
   });
 
-  describe('getData', () => {
-    it('should return "Hello API"', () => {
+  describe('getConsumerHomeData', () => {
+    it('should return consumer home data', () => {
       const appController = app.get<AppController>(AppController);
-      expect(appController.getData()).toEqual({ message: 'Hello API' });
+      expect(appController.getConsumerHomeData()).toEqual({
+        title: 'Welcome to Rocky Store',
+        message: 'Shop featured products from trusted local stores.',
+      });
     });
   });
 });

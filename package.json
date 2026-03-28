@@ -7,7 +7,7 @@
     "dev": "nx run-many -t serve",
     "build": "nx run-many -t build --tui=false",
     "test": "nx run-many -t test --tui=false",
-    "format": "nx format:write",
+    "format": "nx format:write && nx run-many -t lint --fix --tui=false",
     "lint": "nx run-many -t lint --tui=false",
     "typecheck": "nx run-many -t typecheck --tui=false",
     "e2e": "nx run-many -t e2e",
