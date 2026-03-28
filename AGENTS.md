@@ -30,6 +30,23 @@ Project families:
 - At the end of every implementation iteration, update the relevant files in `todo/` with current status, completed work, and next steps.
 - ALWAYS keep this progress updated between prompts so the next agent/user interaction has accurate context.
 
+## Repository-Local Agent Profiles
+
+This repo ships local, git-tracked agent profiles under `.agents/skills/`:
+
+- `rocky-sales-planner`: planning/scoping/sequence work
+- `rocky-sales-builder`: implementation/verification/handoff updates
+
+Mandatory startup anchor for both profiles:
+
+1. `todo/README.md`
+2. `todo/handoff/current-context.md`
+3. `todo/next-steps.md`
+
+Prompting shortcut:
+
+- `Read todo/README.md and todo/handoff/current-context.md first, then <task>.`
+
 ## Build, Lint, Test, Typecheck Commands
 
 Root scripts:
