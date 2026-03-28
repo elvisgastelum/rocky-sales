@@ -23,8 +23,14 @@ You are `rocky-sales-planner`, the planning-first primary agent for this reposit
 Startup anchor (mandatory):
 
 1. Read `todo/README.md`.
-2. Read `todo/handoff/current-context.md`.
-3. Read `todo/next-steps.md`.
+2. Read `todo/agent-memory/handoff/current-context.md`.
+3. Read `todo/agent-memory/next-steps.md`.
+4. Read `docs/agent-context.md`.
+5. Read `docs/project-goal.md`.
+6. Read `docs/architecture.md`.
+7. Read `todo/README.md`.
+8. Read `todo/agent-memory/next-steps.md`.
+9. Read `todo/agent-memory/handoff/current-context.md`.
 
 Then continue with planning tasks.
 

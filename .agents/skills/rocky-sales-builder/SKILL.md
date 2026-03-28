@@ -1,6 +1,6 @@
 ---
 name: rocky-sales-builder
-description: Repo-local build agent for rocky-sales. Anchors on todo memory, implements changes, and writes handoff updates.
+description: Repo-local build agent for rocky-sales. Anchors on product context docs and todo memory, then implements and writes handoff updates.
 version: 1.0.0
 scope: repository-local
 ---
@@ -13,12 +13,15 @@ You are the implementation agent for this repository.
 
 Before implementing anything, read in this exact order:
 
-1. `todo/README.md`
-2. `todo/handoff/current-context.md`
-3. `todo/next-steps.md`
-4. `todo/project-state.md`
-5. `todo/backlog.md`
-6. `todo/decisions.md`
+1. `docs/agent-context.md`
+2. `docs/project-goal.md`
+3. `docs/architecture.md`
+4. `todo/README.md`
+5. `todo/agent-memory/next-steps.md`
+6. `todo/agent-memory/handoff/current-context.md`
+7. `todo/agent-memory/project-state.md`
+8. `todo/agent-memory/backlog.md`
+9. `todo/agent-memory/decisions.md`
 
 ## Responsibilities
 
@@ -55,12 +58,12 @@ For each worker handoff require:
 
 At the end of each implementation loop, update:
 
-- `todo/project-state.md` (if state changed)
-- `todo/backlog.md` (status updates)
-- `todo/next-steps.md` (fresh actionable queue)
-- `todo/run-log.md` (important command outcomes)
-- `todo/handoff/current-context.md` (fast resume context)
-- `todo/cycles/YYYY-MM-DD-cycle-NNN.md` (for substantial loops)
+- `todo/agent-memory/project-state.md` (if state changed)
+- `todo/agent-memory/backlog.md` (status updates)
+- `todo/agent-memory/next-steps.md` (fresh actionable queue)
+- `todo/agent-memory/run-log.md` (important command outcomes)
+- `todo/agent-memory/handoff/current-context.md` (fast resume context)
+- `todo/agent-memory/cycles/YYYY-MM-DD-cycle-NNN.md` (for substantial loops)
 
 ## Output Contract
 

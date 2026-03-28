@@ -24,10 +24,16 @@ Last updated: 2026-03-28
 
 - `store-consumer-web`: first real home flow implemented; `/` now fetches `/api/consumer/home` and renders loading/success/error states.
 - `store-consumer-bff`: first real endpoint implemented at `GET /api/consumer/home` returning `{ title, message }`.
+- Runtime safety: default BFF ports are now split to avoid local dev collisions (`store-consumer-bff`=`3000`, `admin-bff`=`4000`).
 - Consumer tests updated beyond scaffold smoke checks (web unit + BFF unit + consumer web/bff e2e).
 - Admin apps remain scaffold-level.
 - Domain code under root `src/customers` and `src/stores`: directory placeholders only.
 - `packages/`: currently empty placeholder.
+- Workflow support: markdown board tracking now exists under `todo/board/` with lifecycle columns (`backlog`, `todo`, `doing`, `testing`, `done`, `archive`) and a small-card template.
+- Board cards require searchable IDs (`RCS-0000`) with allocation tracked in `todo/board/task-codes.md`.
+- Board has now been seeded with full ordered project delivery cards:
+  - `todo`: `RCS-0001` to `RCS-0003` (immediate admin slice execution queue).
+  - `backlog`: `RCS-0004` to `RCS-0032` (contracts, auth, domains, QA, CI, release readiness).
 
 ## Agent System
 
@@ -35,7 +41,15 @@ Last updated: 2026-03-28
 - Profiles:
   - `rocky-sales-planner` for planning-only loops.
   - `rocky-sales-builder` for implementation + verification + handoff updates.
-- Both profiles enforce startup anchor on `todo/README.md`, `todo/handoff/current-context.md`, and `todo/next-steps.md`.
+- Both profiles enforce startup anchor on `todo/README.md`, `todo/agent-memory/handoff/current-context.md`, and `todo/agent-memory/next-steps.md`.
+- Canonical product context docs now exist and are required at startup:
+  - `docs/agent-context.md`
+  - `docs/project-goal.md`
+  - `docs/architecture.md`
+  - `docs/testing-strategy.md` (required for testing-heavy work)
+- Planner/builder primary agents, repo-local skills, and all specialist subagents are now wired to read docs-first context before `todo/agent-memory/` files.
+- Planner/builder startup anchors were adjusted to explicitly include the todo trio in this order: `todo/README.md` -> `todo/agent-memory/next-steps.md` -> `todo/agent-memory/handoff/current-context.md`.
+- Product docs are now standardized for the current monorepo reality (frontend + backend) while treating older API-first planning as directional context only.
 - OpenCode primary (Tab-switchable) agents now exist under `.opencode/agents/`:
   - `.opencode/agents/rocky-sales-planner.md`
   - `.opencode/agents/rocky-sales-builder.md`
@@ -75,7 +89,8 @@ Outcome:
 ## Current Blockers
 
 1. OpenCode in-app restart/Tab-list verification is still pending (manual UI check not completed in this loop).
-2. First admin product slice and shared contract strategy are still pending.
+2. First admin product slice execution is still pending (`RCS-0001` to `RCS-0003`).
+3. Consumer web real-integration e2e coverage (without API mocking) is still pending for `/api/consumer/home` wiring.
 
 ## Risk Notes
 

@@ -14,6 +14,14 @@ Last updated: 2026-03-28
 - [x] `done` Validate planner and builder delegation flow with specialist workers via smoke-test handoffs.
 - [x] `done` Add explicit ask-gated clipboard permissions (`pbcopy`, `pbpaste`) to `rocky-sales-planner` OpenCode profile.
 - [x] `done` Add OpenCode slash command `/commit-message` to suggest commit titles and ask for clipboard copy confirmation.
+- [x] `done` Create product context docs under `docs/` (`agent-context`, `project-goal`, `architecture`) and wire them into agent startup anchors.
+- [x] `done` Add markdown work board under `todo/board/` with columns (`backlog`, `todo`, `doing`, `testing`, `done`, `archive`) and small-card guidance.
+- [x] `done` Add searchable task code standard for board cards (`RCS-0000`) with shared registry file.
+- [x] `done` Seed first board task card (`RCS-0001`) in `todo/board/todo/`.
+- [x] `done` Expand board with full ordered project plan cards (`RCS-0002` through `RCS-0032`) for atomic commit-sized delivery.
+- [x] `done` Move persistent memory files to `todo/agent-memory/` and normalize path references across agent/docs instructions.
+- [x] `done` Restore planner/builder startup anchors to explicitly read `todo/README.md`, `todo/agent-memory/next-steps.md`, and `todo/agent-memory/handoff/current-context.md`.
+- [x] `done` Resolve local BFF default-port collision by keeping consumer on `3000` and moving admin scope defaults to `4000` (including admin-bff-e2e support scripts).
 - [x] `done` Replace scaffold routes and copy in `store-consumer-web` with first real user flow.
 - [ ] `todo` Replace scaffold routes and copy in `admin-web` with first admin flow.
 - [ ] `doing` Define first domain modules and API contracts for both BFF services (consumer contract shipped; admin pending).

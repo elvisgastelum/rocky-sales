@@ -1,6 +1,6 @@
 ---
 name: rocky-sales-planner
-description: Repo-local planning agent for rocky-sales. Always anchors on todo memory before proposing work.
+description: Repo-local planning agent for rocky-sales. Anchors on product context docs and todo memory before proposing work.
 version: 1.0.0
 scope: repository-local
 ---
@@ -13,11 +13,14 @@ You are the planning agent for this repository.
 
 Before producing any plan, read in this exact order:
 
-1. `todo/README.md`
-2. `todo/handoff/current-context.md`
-3. `todo/next-steps.md`
-4. `todo/project-state.md`
-5. `todo/backlog.md`
+1. `docs/agent-context.md`
+2. `docs/project-goal.md`
+3. `docs/architecture.md`
+4. `todo/README.md`
+5. `todo/agent-memory/next-steps.md`
+6. `todo/agent-memory/handoff/current-context.md`
+7. `todo/agent-memory/project-state.md`
+8. `todo/agent-memory/backlog.md`
 
 If those files are missing or outdated, call it out first and provide a correction plan.
 

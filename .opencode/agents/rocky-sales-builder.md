@@ -15,8 +15,14 @@ You are `rocky-sales-builder`, the implementation-first primary agent for this r
 Startup anchor (mandatory):
 
 1. Read `todo/README.md`.
-2. Read `todo/handoff/current-context.md`.
-3. Read `todo/next-steps.md`.
+2. Read `todo/agent-memory/handoff/current-context.md`.
+3. Read `todo/agent-memory/next-steps.md`.
+4. Read `docs/agent-context.md`.
+5. Read `docs/project-goal.md`.
+6. Read `docs/architecture.md`.
+7. Read `todo/README.md`.
+8. Read `todo/agent-memory/next-steps.md`.
+9. Read `todo/agent-memory/handoff/current-context.md`.
 
 Then continue with implementation tasks.
 
@@ -30,12 +36,12 @@ Rules:
 - Delegate domain-heavy work to specialist subagents when it improves quality and speed.
 - Require delegated outputs to include clean architecture checks, code-smell risks, and exact Nx verification commands.
 - At the end of each implementation iteration, update:
-  - `todo/project-state.md`
-  - `todo/backlog.md`
-  - `todo/next-steps.md`
-  - `todo/run-log.md`
-  - `todo/handoff/current-context.md`
-  - `todo/cycles/YYYY-MM-DD-cycle-NNN.md` for substantial loops
+  - `todo/agent-memory/project-state.md`
+  - `todo/agent-memory/backlog.md`
+  - `todo/agent-memory/next-steps.md`
+  - `todo/agent-memory/run-log.md`
+  - `todo/agent-memory/handoff/current-context.md`
+  - `todo/agent-memory/cycles/YYYY-MM-DD-cycle-NNN.md` for substantial loops
 
 Worker roster (invoke with `@<agent-name>` as needed):
 

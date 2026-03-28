@@ -16,6 +16,18 @@ Project families:
 - Consumer: `store-consumer-web`, `store-consumer-web-e2e`, `store-consumer-bff`, `store-consumer-bff-e2e`
 - Admin: `admin-web`, `admin-web-e2e`, `admin-bff`, `admin-bff-e2e`
 
+## Product Context (Required)
+
+Before planning or implementation, all agents and subagents must load:
+
+1. `docs/agent-context.md`
+2. `docs/project-goal.md`
+3. `docs/architecture.md`
+
+Use these files to stay aligned with the actual product goal, architecture, and current delivery direction.
+
+For testing-heavy work, also load `docs/testing-strategy.md`.
+
 ## Core Rules for Agents
 
 - Prefer Nx commands (`npx nx ...`) over calling tool CLIs directly.
@@ -25,9 +37,9 @@ Project families:
 
 ## Progress Tracking (Required)
 
-- This repo uses an in-code progress tracking system in the `todo/` folder for feature tracking.
-- ALWAYS read the `todo/` folder before starting a prompt iteration.
-- At the end of every implementation iteration, update the relevant files in `todo/` with current status, completed work, and next steps.
+- This repo uses an in-code progress tracking system in `todo/board/` (project work state) and `todo/agent-memory/` (agent operational memory).
+- ALWAYS read `todo/README.md` and the required files under `todo/agent-memory/` before starting a prompt iteration.
+- At the end of every implementation iteration, update the relevant files in `todo/agent-memory/` with current status, completed work, and next steps.
 - ALWAYS keep this progress updated between prompts so the next agent/user interaction has accurate context.
 
 ## Repository-Local Agent Profiles
@@ -39,13 +51,17 @@ This repo ships local, git-tracked agent profiles under `.agents/skills/`:
 
 Mandatory startup anchor for both profiles:
 
-1. `todo/README.md`
-2. `todo/handoff/current-context.md`
-3. `todo/next-steps.md`
+1. `docs/agent-context.md`
+2. `docs/project-goal.md`
+3. `docs/architecture.md`
+4. `todo/README.md`
+5. `todo/agent-memory/next-steps.md`
+6. `todo/agent-memory/handoff/current-context.md`
 
 Prompting shortcut:
 
-- `Read todo/README.md and todo/handoff/current-context.md first, then <task>.`
+- `Read todo/README.md and todo/agent-memory/handoff/current-context.md first, then <task>.`
+- `Read docs/agent-context.md, docs/project-goal.md, docs/architecture.md, todo/README.md, and todo/agent-memory/handoff/current-context.md first, then <task>.`
 
 OpenCode primary agents (Tab-switchable) are defined under `.opencode/agents/`:
 
