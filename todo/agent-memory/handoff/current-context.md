@@ -39,6 +39,7 @@ Updated: 2026-03-28
 - Expanded board with full project delivery queue:
   - `todo`: `RCS-0001` to `RCS-0003` (first admin vertical slice).
   - `backlog`: `RCS-0004` to `RCS-0032` (contract strategy, auth/RBAC, domain modules, QA hardening, CI/release work).
+- Retired `todo/agent-memory/cycles/`; iteration flow is now board-first with concise updates in `next-steps`, `run-log`, and this handoff file.
 - Normalized path terminology across docs and agent instructions:
   - `todo/agent-memory/` is canonical for persistent agent memory.
   - `todo/board/` is canonical for board state and card workflow.

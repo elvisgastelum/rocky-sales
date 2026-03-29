@@ -578,3 +578,22 @@
 - Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
   - Result: post-change pass.
   - Affected projects executed: `@rocky-sales/store-consumer-bff`, `@rocky-sales/admin-bff`, `@rocky-sales/store-consumer-bff-e2e`, `@rocky-sales/admin-bff-e2e`.
+
+- File updates (board-first memory refactor):
+  - Removed all files under `todo/agent-memory/cycles/`.
+  - Updated references to remove cycle requirements in:
+    - `todo/README.md`
+    - `todo/agent-memory/next-steps.md`
+    - `todo/agent-memory/decisions.md`
+    - `.agents/skills/rocky-sales-builder/SKILL.md`
+    - `.opencode/agents/rocky-sales-builder.md`
+    - `todo/agent-memory/project-state.md`
+    - `todo/agent-memory/backlog.md`
+    - `todo/agent-memory/handoff/current-context.md`
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: post-refactor pass.
+  - Note: lint ran for all 8 projects (cache hits), and `nx affected` reported no tasks for current uncommitted scope.
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: final post-memory-sync pass after run-log update; no failing targets.

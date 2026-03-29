@@ -27,6 +27,7 @@ Last updated: 2026-03-28
 - [x] `done` Add MSW foundations to `store-consumer-web` and `admin-web` (browser/node setup, worker assets, and smoke tests).
 - [x] `done` Align current web code to MSW test-only policy by removing app-runtime worker startup and browser worker assets.
 - [x] `done` Add BFF Jest MSW smoke tests to prove Node unit-test runtime interception in `store-consumer-bff` and `admin-bff`.
+- [x] `done` Retire `todo/agent-memory/cycles/` and standardize board-first iteration tracking.
 - [ ] `todo` Replace scaffold routes and copy in `admin-web` with first admin flow.
 - [ ] `doing` Define first domain modules and API contracts for both BFF services (consumer contract shipped; admin pending).
 

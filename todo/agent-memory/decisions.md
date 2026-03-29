@@ -6,11 +6,11 @@
 - Why: `AGENTS.md` requires progress tracking and iterative updates.
 - Impact: every agent iteration must read and update this folder.
 
-## 2026-03-28 - Use Ralph-Style Cycle Notes
+## 2026-03-28 - Retire Cycle Notes in Favor of Board-First Tracking
 
-- Decision: track substantial loops under `todo/agent-memory/cycles/` with goal/plan/actions/results/next move.
-- Why: keeps iterative reasoning and execution history explicit for handoff.
-- Impact: improves continuity across human/agent sessions.
+- Decision: stop using `todo/agent-memory/cycles/`; track iteration flow through `todo/board/` card movement plus concise updates in `next-steps`, `run-log`, and `handoff/current-context`.
+- Why: board state is now the primary structured workflow and duplicate cycle notes add noise.
+- Impact: lower token footprint and simpler handoff discipline with one operational source of truth.
 
 ## 2026-03-28 - Add Repository-Local Planner/Builder Profiles
 

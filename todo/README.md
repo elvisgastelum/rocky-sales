@@ -10,7 +10,6 @@ Purpose: this folder is the persistent memory for human + agent iterations in th
 4. `todo/agent-memory/backlog.md`
 5. `todo/agent-memory/decisions.md`
 6. `todo/agent-memory/run-log.md`
-7. latest file in `todo/agent-memory/cycles/`
 
 ## Update Rules (Required)
 
@@ -22,7 +21,6 @@ Purpose: this folder is the persistent memory for human + agent iterations in th
   - rewrite `todo/agent-memory/next-steps.md` with the next actionable queue,
   - update `todo/agent-memory/handoff/current-context.md` for a fast resume.
 - When a decision affects architecture, constraints, or workflow, add it to `todo/agent-memory/decisions.md`.
-- Create one cycle note per substantial loop in `todo/agent-memory/cycles/` using date + sequence naming.
 
 ## Status Vocabulary
 
@@ -30,23 +28,3 @@ Purpose: this folder is the persistent memory for human + agent iterations in th
 - `doing`: in progress
 - `blocked`: waiting on dependency/decision
 - `done`: completed
-
-## Ralph-Style Cycle Template
-
-Use this structure for each cycle note:
-
-```md
-# YYYY-MM-DD Cycle NNN
-
-## Goal
-
-## Plan
-
-## Actions
-
-## Results
-
-## Learnings
-
-## Next Move
-```

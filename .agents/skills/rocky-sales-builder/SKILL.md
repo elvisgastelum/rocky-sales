@@ -64,7 +64,6 @@ At the end of each implementation loop, update:
 - `todo/agent-memory/next-steps.md` (fresh actionable queue)
 - `todo/agent-memory/run-log.md` (important command outcomes)
 - `todo/agent-memory/handoff/current-context.md` (fast resume context)
-- `todo/agent-memory/cycles/YYYY-MM-DD-cycle-NNN.md` (for substantial loops)
 
 ## Output Contract
 

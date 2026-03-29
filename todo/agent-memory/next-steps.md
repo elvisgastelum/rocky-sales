@@ -11,7 +11,7 @@ Last updated: 2026-03-28
 5. Continue execution in code order (`RCS-0006` -> `RCS-0032`) with one atomic card per commit.
 6. For each card, run pre and post checks: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`.
 7. At phase boundaries, run broad confidence: `npx nx run-many -t lint test typecheck --tui=false`.
-8. Keep `todo/agent-memory/` files and `todo/agent-memory/cycles/` updated at the end of each loop.
+8. Keep `todo/agent-memory/` files and `todo/board/` card states updated at the end of each loop.
 
 ## Definition of Done for Current Baseline
 

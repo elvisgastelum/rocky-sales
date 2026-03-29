@@ -42,7 +42,6 @@ Rules:
   - `todo/agent-memory/next-steps.md`
   - `todo/agent-memory/run-log.md`
   - `todo/agent-memory/handoff/current-context.md`
-  - `todo/agent-memory/cycles/YYYY-MM-DD-cycle-NNN.md` for substantial loops
 
 Worker roster (invoke with `@<agent-name>` as needed):
 
