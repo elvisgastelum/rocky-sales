@@ -99,6 +99,11 @@ Updated: 2026-03-28
 - MSW policy-doc loop passed:
   - `npm run format` -> pass.
   - `npx nx affected -t lint test typecheck --uncommitted --tui=false` -> pass for all 8 affected projects after docs/agent-policy + memory-sync updates.
+- MSW policy-implementation loop passed:
+  - Removed app runtime MSW startup from `apps/store-consumer-web/src/main.tsx` and `apps/admin-web/src/main.tsx`.
+  - Removed browser-worker-only assets (`apps/*/src/mocks/browser.ts`, `apps/*/public/mockServiceWorker.js`).
+  - `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false` -> pass for affected web projects.
+  - source audit `setupWorker|VITE_USE_MSW|mockServiceWorker` in `apps/` -> no matches.
 
 ## Memory Discipline
 

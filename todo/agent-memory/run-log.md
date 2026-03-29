@@ -512,3 +512,32 @@
 
 - Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
   - Result: post-context-sync final pass; format succeeded and affected lint/test/typecheck succeeded for all 8 affected projects (fully cached on affected step).
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: pre-implementation validation pass for MSW policy conformance loop (`nx affected` had no tasks before code edits).
+
+- Command: `grep` audit for `msw|mockServiceWorker|VITE_USE_MSW|setupWorker`
+  - Result: detected policy-violating runtime/browser-worker usage in web app `main.tsx` files and browser-worker assets.
+
+- File updates (MSW policy implementation):
+  - Removed runtime MSW worker startup from:
+    - `apps/store-consumer-web/src/main.tsx`
+    - `apps/admin-web/src/main.tsx`
+  - Removed browser-worker-only files/assets:
+    - `apps/store-consumer-web/src/mocks/browser.ts`
+    - `apps/admin-web/src/mocks/browser.ts`
+    - `apps/store-consumer-web/public/mockServiceWorker.js`
+    - `apps/admin-web/public/mockServiceWorker.js`
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: post-change pass for affected web projects (`@rocky-sales/store-consumer-web`, `@rocky-sales/store-consumer-web-e2e`, `@rocky-sales/admin-web`, `@rocky-sales/admin-web-e2e`).
+
+- Command: `grep` audit in `apps/` for `setupWorker|VITE_USE_MSW|mockServiceWorker|msw/browser`
+  - Result: no matches; current code now conforms to MSW test-only policy.
+
+- File updates (memory sync):
+  - Updated `todo/agent-memory/project-state.md`, `todo/agent-memory/backlog.md`, and `todo/agent-memory/handoff/current-context.md` for policy-implementation loop.
+  - Added cycle note: `todo/agent-memory/cycles/2026-03-28-cycle-021.md`.
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: final post-memory-sync pass for policy-implementation loop; affected web targets succeeded with no failures.

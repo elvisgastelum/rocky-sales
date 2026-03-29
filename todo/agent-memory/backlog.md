@@ -25,6 +25,7 @@ Last updated: 2026-03-28
 - [x] `done` Replace scaffold routes and copy in `store-consumer-web` with first real user flow.
 - [x] `done` Harden consumer web Vite API proxy so `/api/consumer/home` falls back to baseline payload when local consumer BFF is unavailable.
 - [x] `done` Add MSW foundations to `store-consumer-web` and `admin-web` (browser/node setup, worker assets, and smoke tests).
+- [x] `done` Align current web code to MSW test-only policy by removing app-runtime worker startup and browser worker assets.
 - [ ] `todo` Replace scaffold routes and copy in `admin-web` with first admin flow.
 - [ ] `doing` Define first domain modules and API contracts for both BFF services (consumer contract shipped; admin pending).
 
