@@ -19,6 +19,12 @@ Build confidence incrementally while the product evolves from scaffold to real v
 - Web e2e: Playwright
 - BFF e2e: Jest
 
+## MSW Usage Policy (Required)
+
+- Use MSW only to support Vitest/Jest unit or integration tests.
+- Do not wire a default runtime browser worker in app code.
+- Do not depend on MSW in Playwright e2e flows.
+
 ## Default Validation Cadence
 
 - Pre/post chunk: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`

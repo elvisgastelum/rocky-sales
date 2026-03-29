@@ -1,6 +1,9 @@
 /// <reference types='vitest' />
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+
+const consumerBffUrl =
+  process.env.STORE_CONSUMER_BFF_URL ?? 'http://localhost:3000';
 
 export default defineConfig(() => ({
   root: import.meta.dirname,
@@ -9,7 +12,10 @@ export default defineConfig(() => ({
     port: 5500,
     host: 'localhost',
     proxy: {
-      '/api': 'http://localhost:3000',
+      '/api': {
+        target: consumerBffUrl,
+        changeOrigin: true,
+      },
     },
   },
   preview: {
@@ -34,6 +40,7 @@ export default defineConfig(() => ({
     watch: false,
     globals: true,
     environment: 'jsdom',
+    setupFiles: ['./src/test.setup.ts'],
     include: ['{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     reporters: ['default'],
     coverage: {

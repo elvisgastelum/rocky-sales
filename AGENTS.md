@@ -34,6 +34,7 @@ For testing-heavy work, also load `docs/testing-strategy.md`.
 - Use `nx run <project>:<target>` for focused work.
 - Use `nx run-many -t <target>` for workspace-wide checks.
 - Use `nx affected -t <target>` for branch-safe, minimal CI-style runs.
+- MSW policy: use MSW only for Vitest/Jest unit or integration test support; do not wire a default runtime browser worker in app code; do not depend on MSW in Playwright e2e flows.
 
 ## Progress Tracking (Required)
 

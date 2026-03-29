@@ -33,6 +33,7 @@ Rules:
 - Keep changes scoped and report exact failing targets when checks fail.
 - Before each implementation chunk, run `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`.
 - After each implementation chunk, rerun `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`; for broad/pre-PR loops escalate to `npx nx run-many -t lint test typecheck --tui=false`.
+- Use MSW only for Vitest/Jest unit or integration test support; do not wire a default runtime browser worker in app code and do not use MSW as a Playwright e2e dependency.
 - Delegate domain-heavy work to specialist subagents when it improves quality and speed.
 - Require delegated outputs to include clean architecture checks, code-smell risks, and exact Nx verification commands.
 - At the end of each implementation iteration, update:

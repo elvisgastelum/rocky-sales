@@ -32,6 +32,7 @@ Before implementing anything, read in this exact order:
 - Run validation cadence for every implementation loop:
   - before each chunk: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
   - after each chunk: same command, and escalate to `npx nx run-many -t lint test typecheck --tui=false` for broad/pre-PR validation
+- Use MSW only for Vitest/Jest unit or integration test support; do not wire a default runtime browser worker in app code and do not use MSW in Playwright e2e flows.
 - Delegate domain-heavy work to specialist worker agents when this improves code quality and delivery speed.
 
 ## Worker Agent Roster

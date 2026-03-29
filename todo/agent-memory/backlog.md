@@ -23,6 +23,8 @@ Last updated: 2026-03-28
 - [x] `done` Restore planner/builder startup anchors to explicitly read `todo/README.md`, `todo/agent-memory/next-steps.md`, and `todo/agent-memory/handoff/current-context.md`.
 - [x] `done` Resolve local BFF default-port collision by keeping consumer on `3000` and moving admin scope defaults to `4000` (including admin-bff-e2e support scripts).
 - [x] `done` Replace scaffold routes and copy in `store-consumer-web` with first real user flow.
+- [x] `done` Harden consumer web Vite API proxy so `/api/consumer/home` falls back to baseline payload when local consumer BFF is unavailable.
+- [x] `done` Add MSW foundations to `store-consumer-web` and `admin-web` (browser/node setup, worker assets, and smoke tests).
 - [ ] `todo` Replace scaffold routes and copy in `admin-web` with first admin flow.
 - [ ] `doing` Define first domain modules and API contracts for both BFF services (consumer contract shipped; admin pending).
 

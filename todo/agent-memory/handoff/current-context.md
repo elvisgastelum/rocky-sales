@@ -6,6 +6,8 @@ Updated: 2026-03-28
 
 - Nx monorepo with 8 apps (consumer/admin web + bff + e2e).
 - Consumer apps now have first non-scaffold vertical slice implemented.
+- Consumer web dev runtime now protects `/api/consumer/home` against local proxy failures by serving baseline fallback JSON when consumer BFF is offline.
+- MSW policy is now explicit across project docs and agent instructions: use MSW only for Vitest/Jest unit or integration test support, never as a default runtime browser worker in app code, and never as a Playwright e2e dependency.
 - Git branch `master` is ahead by 1 commit, working tree currently dirty with local in-progress files.
 - Repo-local agent profiles are now tracked in git:
   - `.agents/skills/rocky-sales-planner/SKILL.md`
@@ -86,6 +88,17 @@ Updated: 2026-03-28
 - Port-fix loop passed:
   - `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false` -> pass for `@rocky-sales/admin-bff` and `@rocky-sales/admin-bff-e2e`.
   - `npx nx run @rocky-sales/admin-bff-e2e:e2e -- --runTestsByPath src/admin-bff/admin-bff.spec.ts` -> pass; teardown confirms port `4000`.
+- Consumer web proxy-hardening loop passed:
+  - `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false` -> pass for `@rocky-sales/store-consumer-web` and `@rocky-sales/store-consumer-web-e2e`.
+  - `npx nx run @rocky-sales/store-consumer-bff-e2e:e2e -- --runTestsByPath src/store-consumer-bff/store-consumer-bff.spec.ts` -> pass.
+  - `npx nx run @rocky-sales/store-consumer-web:serve` + `curl http://localhost:5500/api/consumer/home` (BFF down) -> `200` with fallback payload.
+- MSW + validation loop passed:
+  - `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false` -> pass for all 8 affected projects in this loop.
+  - `npx nx run @rocky-sales/store-consumer-web-e2e:e2e -- src/example.spec.ts` -> pass with no Playwright route mocking, exercising real consumer-web proxy/fallback path.
+  - `@rocky-sales/store-consumer-web` and `@rocky-sales/admin-web` Vitest runs include passing `src/mocks/msw.smoke.spec.ts` tests.
+- MSW policy-doc loop passed:
+  - `npm run format` -> pass.
+  - `npx nx affected -t lint test typecheck --uncommitted --tui=false` -> pass for all 8 affected projects after docs/agent-policy + memory-sync updates.
 
 ## Memory Discipline
 

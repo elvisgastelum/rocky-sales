@@ -40,6 +40,7 @@ Rules:
 - Bash access is guarded: allowlisted context and validation commands may run directly; ask for any other command.
 - Planner may run validation-only commands to keep iteration health: `npm run format`, `npx nx affected -t lint test typecheck --uncommitted --tui=false`, and `npx nx run-many -t lint test typecheck --tui=false`.
 - Do not execute implementation commands unless the user explicitly asks to switch to builder behavior.
+- MSW usage must stay test-only: allow MSW for Vitest/Jest unit or integration support, but disallow default runtime browser worker wiring in app code and disallow MSW dependencies in Playwright e2e plans.
 - Propose phased plans with assumptions, risks, dependencies, and Nx verification commands.
 - Use specialist subagents when plan quality improves from domain depth.
 - Require each subagent handoff to return: scope, assumptions, risks, architecture/code-smell concerns, and Nx verification commands.

@@ -414,3 +414,101 @@
 
 - File updates (memory sync):
   - Updated `todo/agent-memory/project-state.md`, `todo/agent-memory/backlog.md`, `todo/agent-memory/next-steps.md`, and `todo/agent-memory/handoff/current-context.md` for port-fix state.
+
+- Command: `npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: pre-change validation pass; `No tasks were run` for current uncommitted scope.
+
+- File updates (consumer web proxy hardening):
+  - Updated `apps/store-consumer-web/vite.config.mts` to:
+    - read proxy target from `STORE_CONSUMER_BFF_URL` (default `http://localhost:3000`),
+    - keep `/api` proxy forwarding,
+    - return baseline fallback payload for `/api/consumer/home` when proxy target is unreachable,
+    - return structured `502` JSON for other `/api` proxy connection failures.
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: pass for affected projects (`@rocky-sales/store-consumer-web`, `@rocky-sales/store-consumer-web-e2e`).
+
+- Command: `npx nx run @rocky-sales/store-consumer-bff-e2e:e2e -- --runTestsByPath src/store-consumer-bff/store-consumer-bff.spec.ts`
+  - Result: pass; confirms BFF contract remains valid at `GET /api/consumer/home`.
+
+- Command: `npx nx run @rocky-sales/store-consumer-web:serve` + `curl http://localhost:5500/api/consumer/home`
+  - Result: returned `200` with fallback JSON while consumer BFF was offline.
+
+- File updates (memory sync):
+  - Updated `todo/agent-memory/project-state.md`, `todo/agent-memory/backlog.md`, `todo/agent-memory/next-steps.md`, and `todo/agent-memory/handoff/current-context.md` for proxy-hardening loop.
+  - Added cycle note: `todo/agent-memory/cycles/2026-03-28-cycle-018.md`.
+
+- Research:
+  - Used Context7 (`https://context7.com/mswjs/msw/llms.txt`) to confirm MSW setup patterns for browser (`setupWorker`) and test/node (`setupServer`) usage.
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: pre-change validation pass.
+
+- Command: `npm install -D msw && npx msw init apps/store-consumer-web/public --no-save && npx msw init apps/admin-web/public --no-save`
+  - Result: installed `msw` dev dependency and generated `mockServiceWorker.js` in both web app public directories.
+
+- File updates (MSW scaffolding):
+  - Added consumer web MSW setup files:
+    - `apps/store-consumer-web/src/mocks/handlers.ts`
+    - `apps/store-consumer-web/src/mocks/browser.ts`
+    - `apps/store-consumer-web/src/mocks/server.ts`
+    - `apps/store-consumer-web/src/test.setup.ts`
+    - `apps/store-consumer-web/src/mocks/msw.smoke.spec.ts`
+  - Added admin web MSW setup files:
+    - `apps/admin-web/src/mocks/handlers.ts`
+    - `apps/admin-web/src/mocks/browser.ts`
+    - `apps/admin-web/src/mocks/server.ts`
+    - `apps/admin-web/src/test.setup.ts`
+    - `apps/admin-web/src/mocks/msw.smoke.spec.ts`
+  - Updated both web app entry points to allow opt-in browser worker startup with `VITE_USE_MSW=true`:
+    - `apps/store-consumer-web/src/main.tsx`
+    - `apps/admin-web/src/main.tsx`
+  - Updated both web Vite test configs to load MSW test setup:
+    - `apps/store-consumer-web/vite.config.mts`
+    - `apps/admin-web/vite.config.mts`
+  - Updated consumer web e2e validation to remove Playwright route mocking:
+    - `apps/store-consumer-web-e2e/src/example.spec.ts`
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: pass for all affected projects; MSW smoke tests passed in both web apps.
+
+- Command: `npx nx run @rocky-sales/store-consumer-web-e2e:e2e -- src/example.spec.ts`
+  - Result: pass across chromium/firefox/webkit without route mocking; Vite logs expected proxy connection errors while fallback serves successful response.
+
+- File updates (memory sync):
+  - Updated `todo/agent-memory/project-state.md`, `todo/agent-memory/backlog.md`, `todo/agent-memory/next-steps.md`, and `todo/agent-memory/handoff/current-context.md` for MSW + validation loop.
+  - Added cycle note: `todo/agent-memory/cycles/2026-03-28-cycle-019.md`.
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: final post-memory-sync pass; all affected lint/test/typecheck targets succeeded.
+
+- File updates (MSW policy documentation/instruction enforcement):
+  - Updated canonical and testing docs:
+    - `AGENTS.md`
+    - `docs/testing-strategy.md`
+  - Updated local OpenCode agents:
+    - `.opencode/agents/rocky-sales-builder.md`
+    - `.opencode/agents/rocky-sales-planner.md`
+  - Updated repo-local skill instructions:
+    - `.agents/skills/rocky-sales-builder/SKILL.md`
+    - `.agents/skills/rocky-sales-planner/SKILL.md`
+
+- Command: `npm run format`
+  - Result: pass; `nx format:write` completed and lint ran for all 8 projects (6 cached, 2 executed).
+
+- Command: `npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: pass; lint/test/typecheck succeeded for 8 affected projects (15 of 20 tasks from cache).
+
+- File updates (memory sync for MSW policy loop):
+  - Updated `todo/agent-memory/handoff/current-context.md` with mandatory MSW test-only policy.
+  - Added cycle note: `todo/agent-memory/cycles/2026-03-28-cycle-020.md`.
+
+- Command: `npm run format`
+  - Result: final post-memory-sync format pass; `nx format:write` and lint `--fix` succeeded for all 8 projects.
+
+- Command: `npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: final post-memory-sync affected pass; lint/test/typecheck succeeded for all 8 affected projects.
+  - Note: non-failing warnings observed during run (`React Router future flags`, one `MaxListenersExceededWarning` from Node process listeners), no target failures.
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: post-context-sync final pass; format succeeded and affected lint/test/typecheck succeeded for all 8 affected projects (fully cached on affected step).

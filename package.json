@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "reset": "nx reset",
     "start": "nx serve-static @rocky-sales/store-consumer-web",
-    "dev": "nx run-many -t serve",
+    "dev": "npm run reset && nx run-many -t serve",
     "build": "nx run-many -t build --tui=false",
     "test": "nx run-many -t test --tui=false",
     "format": "nx format:write && nx run-many -t lint --fix --tui=false",
@@ -62,6 +63,7 @@
     "jest-util": "^30.0.2",
     "jiti": "2.4.2",
     "jsdom": "~22.1.0",
+    "msw": "^2.12.14",
     "nx": "22.4.2",
     "postcss": "8.4.38",
     "prettier": "~3.6.2",
