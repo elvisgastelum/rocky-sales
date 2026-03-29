@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 
 interface ConsumerHomeResponse {
@@ -19,7 +19,7 @@ const initialHomeState: HomeState = {
 export function App() {
   const [homeState, setHomeState] = useState<HomeState>(initialHomeState);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     let isActive = true;
 
     const loadHomeData = async () => {

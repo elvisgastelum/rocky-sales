@@ -597,3 +597,15 @@
 
 - Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
   - Result: final post-memory-sync pass after run-log update; no failing targets.
+
+- File updates (board intake for SWR request):
+  - Added board card: `todo/board/backlog/RCS-0033-2026-03-28-swr-data-fetching-adoption.md`.
+  - Updated task code registry: `todo/board/task-codes.md` (`Next Code` advanced to `RCS-0034`).
+  - Synced memory files: `todo/agent-memory/backlog.md`, `todo/agent-memory/next-steps.md`, `todo/agent-memory/project-state.md`, `todo/agent-memory/handoff/current-context.md`.
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: post-board-update pass; no failing Nx targets.
+
+- File updates (backlog intake):
+  - Added todo item in `todo/agent-memory/backlog.md`:
+    - `Install SWR package to fetch data on this project.`

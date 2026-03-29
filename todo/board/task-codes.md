@@ -10,7 +10,7 @@ Use this file to keep task codes unique and searchable.
 
 ## Next Code
 
-- `RCS-0033`
+- `RCS-0034`
 
 ## Allocations
 
@@ -48,3 +48,4 @@ Use this file to keep task codes unique and searchable.
 | `RCS-0030` | 2026-03-28 | `todo/board/backlog/RCS-0030-2026-03-28-root-domain-placeholder-decision.md`   | `backlog` |
 | `RCS-0031` | 2026-03-28 | `todo/board/backlog/RCS-0031-2026-03-28-shared-contract-package-trigger.md`    | `backlog` |
 | `RCS-0032` | 2026-03-28 | `todo/board/backlog/RCS-0032-2026-03-28-release-readiness-gate.md`             | `backlog` |
+| `RCS-0033` | 2026-03-28 | `todo/board/backlog/RCS-0033-2026-03-28-swr-data-fetching-adoption.md`         | `backlog` |

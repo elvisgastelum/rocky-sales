@@ -37,7 +37,7 @@ Last updated: 2026-03-28
 - `todo/agent-memory/cycles/` has been retired; board movement + concise memory files are now the only iteration tracking path.
 - Board has now been seeded with full ordered project delivery cards:
   - `todo`: `RCS-0001` to `RCS-0003` (immediate admin slice execution queue).
-  - `backlog`: `RCS-0004` to `RCS-0032` (contracts, auth, domains, QA, CI, release readiness).
+  - `backlog`: `RCS-0004` to `RCS-0033` (contracts, auth, domains, QA, CI, release readiness, and SWR adoption).
 
 ## Agent System
 

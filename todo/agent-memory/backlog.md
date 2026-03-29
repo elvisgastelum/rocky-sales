@@ -28,12 +28,14 @@ Last updated: 2026-03-28
 - [x] `done` Align current web code to MSW test-only policy by removing app-runtime worker startup and browser worker assets.
 - [x] `done` Add BFF Jest MSW smoke tests to prove Node unit-test runtime interception in `store-consumer-bff` and `admin-bff`.
 - [x] `done` Retire `todo/agent-memory/cycles/` and standardize board-first iteration tracking.
+- [x] `done` Add board backlog card `RCS-0033` for SWR data-fetching adoption planning.
 - [ ] `todo` Replace scaffold routes and copy in `admin-web` with first admin flow.
 - [ ] `doing` Define first domain modules and API contracts for both BFF services (consumer contract shipped; admin pending).
 
 ## Medium Priority
 
 - [ ] `todo` Add shared contract strategy between web and BFF (types or schema package).
+- [ ] `todo` Install SWR package to fetch data on this project.
 - [ ] `todo` Add basic CI profile for affected `lint`, `test`, `typecheck`.
 - [x] `done` Mirror before/after chunk validation cadence in `rocky-sales-builder` profile docs.
 - [x] `done` Update `npm run format` to run Prettier plus ESLint `--fix` integration.

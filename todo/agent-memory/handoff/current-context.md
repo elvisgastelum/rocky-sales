@@ -38,7 +38,7 @@ Updated: 2026-03-28
 - Created first board card `RCS-0001` under `todo/board/todo/` for admin BFF home endpoint implementation chunk.
 - Expanded board with full project delivery queue:
   - `todo`: `RCS-0001` to `RCS-0003` (first admin vertical slice).
-  - `backlog`: `RCS-0004` to `RCS-0032` (contract strategy, auth/RBAC, domain modules, QA hardening, CI/release work).
+  - `backlog`: `RCS-0004` to `RCS-0033` (contract strategy, auth/RBAC, domain modules, QA hardening, CI/release work, plus SWR adoption planning).
 - Retired `todo/agent-memory/cycles/`; iteration flow is now board-first with concise updates in `next-steps`, `run-log`, and this handoff file.
 - Normalized path terminology across docs and agent instructions:
   - `todo/agent-memory/` is canonical for persistent agent memory.
