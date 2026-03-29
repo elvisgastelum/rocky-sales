@@ -541,3 +541,40 @@
 
 - Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
   - Result: final post-memory-sync pass for policy-implementation loop; affected web targets succeeded with no failures.
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: pre-implementation pass for MSW smoke coverage request.
+
+- File updates (MSW smoke expansion to BFF apps):
+  - Added:
+    - `apps/store-consumer-bff/src/mocks/msw.smoke.spec.ts`
+    - `apps/admin-bff/src/mocks/msw.smoke.spec.ts`
+
+- Command: `npx nx run @rocky-sales/store-consumer-bff:test -- --runTestsByPath src/mocks/msw.smoke.spec.ts`
+  - Result: failed initially.
+  - Failed target: `@rocky-sales/store-consumer-bff:test`
+  - Error: Jest could not parse ESM dependency from MSW chain (`until-async/lib/index.js` with `export` syntax).
+
+- Command: `npx nx run @rocky-sales/admin-bff:test -- --runTestsByPath src/mocks/msw.smoke.spec.ts`
+  - Result: failed initially.
+  - Failed target: `@rocky-sales/admin-bff:test`
+  - Error: same ESM transform issue from MSW dependency chain.
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: pre-fix pass before Jest transform config update.
+
+- File updates (Jest ESM transform fix for MSW in BFF):
+  - Updated:
+    - `apps/store-consumer-bff/jest.config.cts`
+    - `apps/admin-bff/jest.config.cts`
+  - Change: added `transformIgnorePatterns: ['node_modules/(?!(msw|@mswjs|until-async)/)']`.
+
+- Command: `npx nx run @rocky-sales/store-consumer-bff:test -- --runTestsByPath src/mocks/msw.smoke.spec.ts`
+  - Result: pass.
+
+- Command: `npx nx run @rocky-sales/admin-bff:test -- --runTestsByPath src/mocks/msw.smoke.spec.ts`
+  - Result: pass.
+
+- Command: `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false`
+  - Result: post-change pass.
+  - Affected projects executed: `@rocky-sales/store-consumer-bff`, `@rocky-sales/admin-bff`, `@rocky-sales/store-consumer-bff-e2e`, `@rocky-sales/admin-bff-e2e`.

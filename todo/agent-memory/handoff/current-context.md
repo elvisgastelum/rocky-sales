@@ -96,6 +96,12 @@ Updated: 2026-03-28
   - `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false` -> pass for all 8 affected projects in this loop.
   - `npx nx run @rocky-sales/store-consumer-web-e2e:e2e -- src/example.spec.ts` -> pass with no Playwright route mocking, exercising real consumer-web proxy/fallback path.
   - `@rocky-sales/store-consumer-web` and `@rocky-sales/admin-web` Vitest runs include passing `src/mocks/msw.smoke.spec.ts` tests.
+- BFF MSW smoke expansion loop passed:
+  - Added Jest smoke specs in `apps/store-consumer-bff/src/mocks/msw.smoke.spec.ts` and `apps/admin-bff/src/mocks/msw.smoke.spec.ts`.
+  - Updated Jest transforms in `apps/store-consumer-bff/jest.config.cts` and `apps/admin-bff/jest.config.cts` to transpile ESM dependencies used by `msw` (`msw`, `@mswjs`, `until-async`).
+  - `npx nx run @rocky-sales/store-consumer-bff:test -- --runTestsByPath src/mocks/msw.smoke.spec.ts` -> pass.
+  - `npx nx run @rocky-sales/admin-bff:test -- --runTestsByPath src/mocks/msw.smoke.spec.ts` -> pass.
+  - `npm run format && npx nx affected -t lint test typecheck --uncommitted --tui=false` -> pass for affected BFF and BFF-e2e projects.
 - MSW policy-doc loop passed:
   - `npm run format` -> pass.
   - `npx nx affected -t lint test typecheck --uncommitted --tui=false` -> pass for all 8 affected projects after docs/agent-policy + memory-sync updates.

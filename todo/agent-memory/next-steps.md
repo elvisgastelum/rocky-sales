@@ -22,3 +22,4 @@ Last updated: 2026-03-28
 ## Baseline Status
 
 - Achieved on 2026-03-28 after e2e ESLint ignore updates and full `run-many` verification.
+- MSW smoke runtime proof now covers all runtime apps (web Vitest + BFF Jest); continue with admin vertical-slice cards `RCS-0001` to `RCS-0003`.
